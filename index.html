@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <!-- Open Graph para Discord y redes sociales -->
   <meta property="og:title" content="Con Calma - Daddy Yankee & Snow" />
   <meta property="og:description" content="El temazo oficial con Snow, basado en el clásico Informer" />
@@ -12,23 +12,56 @@
   <meta property="og:type" content="video.other" />
 
   <title>Con Calma - Embed limpio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body style="margin:0; display:flex; flex-direction: column; align-items:center; justify-content:center; height:100vh; background:#000; color:#fff;">
+<body>
+  <div class="container">
+    <div class="music-player">
+      <div class="header">
+        <div class="vinyl-icon">
+          <div class="vinyl">
+            <div class="label"></div>
+          </div>
+        </div>
+        <div class="track-info">
+          <h1 class="track-title">Con Calma</h1>
+          <p class="artist">Daddy Yankee & Snow</p>
+          <p class="album">Con Calma (Single)</p>
+        </div>
+      </div>
 
-  <h1>Con Calma - Daddy Yankee & Snow</h1>
+      <div class="video-container">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src="https://www.youtube.com/embed/DiItGE3eAyQ?autoplay=0&controls=1&modestbranding=1&rel=0" 
+          title="Con Calma - Daddy Yankee & Snow" 
+          frameborder="0" 
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <!-- Embed limpio sin autoplay -->
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/DiItGE3eAyQ?autoplay=0&controls=1&modestbranding=1&rel=0" 
-    title="Con Calma - Daddy Yankee & Snow" 
-    frameborder="0" 
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
+      <div class="controls">
+        <div class="play-info">
+          <div class="waveform">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <p class="play-text">Pulsa play para escuchar el temazo</p>
+        </div>
+      </div>
+    </div>
 
-  <p style="margin-top:20px;">Pulsa play para escuchar el temazo.</p>
+    <div class="background-gradient"></div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
