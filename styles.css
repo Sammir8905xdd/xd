@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 107, 0, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+              linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  z-index: 0;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.music-player {
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.vinyl-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  position: relative;
+  animation: spin 3s linear infinite;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.vinyl::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  background: repeating-conic-gradient(from 0deg, #2a2a2a 0deg 2deg, #1a1a1a 2deg 4deg);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, #ff6b00, #ffd700);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ffffff, #ff6b00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.artist {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #cccccc;
+  margin-bottom: 0.25rem;
+}
+
+.album {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #888888;
+}
+
+.video-container {
+  width: 100%;
+  height: 315px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+  transform: translateY(-2px);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.waveform {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  height: 30px;
+}
+
+.bar {
+  width: 3px;
+  background: linear-gradient(to top, #ff6b00, #ffd700);
+  border-radius: 2px;
+  animation: wave 1.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.bar:nth-child(1) { height: 20%; animation-delay: 0s; }
+.bar:nth-child(2) { height: 40%; animation-delay: 0.1s; }
+.bar:nth-child(3) { height: 80%; animation-delay: 0.2s; }
+.bar:nth-child(4) { height: 60%; animation-delay: 0.3s; }
+.bar:nth-child(5) { height: 90%; animation-delay: 0.4s; }
+.bar:nth-child(6) { height: 30%; animation-delay: 0.5s; }
+.bar:nth-child(7) { height: 70%; animation-delay: 0.6s; }
+.bar:nth-child(8) { height: 50%; animation-delay: 0.7s; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50% { transform: scaleY(1.5); opacity: 1; }
+}
+
+.play-text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .music-player {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .track-title {
+    font-size: 1.5rem;
+  }
+  
+  .video-container {
+    height: 250px;
+  }
+  
+  .play-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    height: 200px;
+  }
+  
+  .vinyl {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .label {
+    width: 18px;
+    height: 18px;
+  }
+}
